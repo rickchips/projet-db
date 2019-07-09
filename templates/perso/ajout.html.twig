@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formulaire de modification</h1>
+
+    {{ form_start(formPerso) }}
+    {{ form_widget(formPerso) }}
+    <input type="submit" value="Modifier" class="btn btn-warning">
+    {{ form_end(formPerso) }}
+{% endblock %}
