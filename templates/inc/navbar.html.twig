@@ -13,6 +13,9 @@
                         <a class="nav-link" href="{{ path('easyadmin') }}">Back-office</a>
                     </li>
 {#                {% endif %}#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('filtre') }}">Filtre</a>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}

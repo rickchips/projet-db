@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Filtre{% endblock %}
+
+{% block body %}
+    <form method="post" style="margin-top: 20px;margin-left: -50px">
+{% for lien in liens %}
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="{{ lien.id }}" id="{{ lien.id }}" name="{{ lien.id }}">
+        <label class="form-check-label" for="{{ lien.id }}">
+            {{ lien.nomLiens }}
+        </label>
+    </div>
+{% endfor %}
+        <input type="image" id="bouton" alt="bouton" src="/img/1200px-Dragon_ball.svg.png" style="width:25px;height:25px;margin:10px 70px">
+    </form>
+
+<div style="float: left">
+    {% for personnage in personnages %}
+    <img src="/uploads/persos/{{ personnage.image }}" style="max-width:80px">
+    {%  endfor %}
+    </div>
+
+{% endblock %}

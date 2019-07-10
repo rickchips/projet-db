@@ -4,9 +4,10 @@
 
 {% block body %}
 
-        {% for personnage in personnage %}
-                <div class="card" style="width: 5rem;border: none;float: left">
-                        <img class="card-img-top" src="/uploads/persos/{{ personnage.image }}" alt="Card image cap">
-                     </div>
-        {% endfor %}
+{% for personnage in personnage %}
+        <div class="card" style="width: 5rem;border: none;float: left">
+                <img class="card-img-top" src="/uploads/persos/{{ personnage.image }}" alt="Card image cap">
+             </div>
+{% endfor %}
+
 {% endblock %}
