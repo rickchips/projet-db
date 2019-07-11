@@ -1,3 +1,5 @@
 index:
     path: /
     controller: App\Controller\PersoController::index
+app_logout:
+    path: /logout

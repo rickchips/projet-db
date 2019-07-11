@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %}
+<main class="container">
+    <div class="register">
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputPseudo" class="sr-only">Pseudo</label>
     <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" placeholder="Pseudo" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
@@ -30,7 +31,9 @@
     #}
 
     <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+        Se connecter
     </button>
 </form>
+    </div>
+</main>
 {% endblock %}

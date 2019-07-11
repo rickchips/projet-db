@@ -1,14 +1,38 @@
 *{margin: 0;
     padding: 0}
 
-form {
+body{
+    background-color:#12213d;
+    background-image: url(../img/crbleu.gif)
+}
+
+.logo{
+    width: 40px;
+}
+
+.logoeasy{
+    width: 40px;
+    margin-left: 20%;
+}
+
+.liste {
     font-size: 12px;
+}
+
+.listebox{
+    height: 80vh;
+    overflow: scroll;
+    border-top: none;
+    overflow-x: hidden;
+    background-image: url(../img/fnoir.png);
+    color:white;
+    padding: 5px 10px;
 }
 
 .bouton{
     width:25px;
     height:25px;
-    margin:10px 70px
+    margin:10px 100px
 }
 
 .container{
@@ -20,12 +44,14 @@ form {
 
 .bloc1 {
     padding-top: 1%;
-    width: 20%;
+    width: 23%;
 }
+
+
 
 .bloc2 {
     padding-top: 1%;
-    width: 80%;
+    width: 77%;
     text-align: center;
 }
 
@@ -40,10 +66,24 @@ label:hover{
 .btntri{
     font-size: 12px;
     text-align: center;
+    color:white
+}
+.btntri:hover{
+    font-size: 12px;
+    text-align: center;
+    color:#00ef00
+}
+
+.register{
+    text-align:center;
+    margin:auto;
+    margin-top:2%
+}
+
+.liste:hover{font-size: 13px;color:#00ef00
 }
 
 
-
-
-
-
+.row{
+    margin-left: 15%;
+}
