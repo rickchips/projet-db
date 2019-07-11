@@ -37,7 +37,10 @@ label:hover{
     cursor: pointer;
 }
 
-
+.btntri{
+    font-size: 12px;
+    text-align: center;
+}
 
 
 

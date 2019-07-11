@@ -44,9 +44,21 @@ class FiltreController extends AbstractController
             }
 //            var_dump($persosOk);
         }
+
+        // Tri des persos
+        $filter = $request->query->get('filter', 'nomLiens');
+        if ($filter === 'nbKiLiens') {
+            $orderBy = [
+                'nbKiLiens' => 'DESC',
+                'nomLiens' => 'ASC'
+            ];
+        } else {
+            $orderBy = ['nomLiens' => 'ASC'];
+        }
+
         return $this->render('filtre/index.html.twig', [
-            'personnages' => $persosOk ?? [],
-            'liens' => $lienrepository->findAll()
+            'liens' => $lienrepository->findBy([], $orderBy),
+            'personnages' => $persosOk ?? []
         ]);
     }
 

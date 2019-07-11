@@ -5,6 +5,10 @@
 {% block body %}
     <main class="container">
     <div class="bloc1">
+        <div class="row">
+            <a href="{{ path('filtre') }}?filter=nomLiens" class="btn btntri">Trier par nom</a>
+            <a href="{{ path('filtre') }}?filter=nbKiLiens" class="btn btntri">Trier par ki</a>
+        </div>
     <form method="post">
 {% for lien in liens %}
 

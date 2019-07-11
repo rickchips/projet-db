@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,111 +18,96 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $pseudoUser;
+    private $pseudo;
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
+     * @ORM\Column(type="json")
      */
-    private $emailUser;
+    private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
-    private $mdpUser;
-
-    /**
-     * @ORM\Column(type="string", length=64, nullable=true)
-     */
-    private $role;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Personnage", inversedBy="pseudo_user")
-     */
-    private $idPerso;
-
-    public function __construct()
-    {
-        $this->idPerso = new ArrayCollection();
-    }
+    private $password;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPseudoUser(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->pseudoUser;
+        return $this->pseudo;
     }
 
-    public function setPseudoUser(string $pseudoUser): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->pseudoUser = $pseudoUser;
-
-        return $this;
-    }
-
-    public function getEmailUser(): ?string
-    {
-        return $this->emailUser;
-    }
-
-    public function setEmailUser(string $emailUser): self
-    {
-        $this->emailUser = $emailUser;
-
-        return $this;
-    }
-
-    public function getMdpUser(): ?string
-    {
-        return $this->mdpUser;
-    }
-
-    public function setMdpUser(string $mdpUser): self
-    {
-        $this->mdpUser = $mdpUser;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(?string $role): self
-    {
-        $this->role = $role;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
 
     /**
-     * @return Collection|Personnage[]
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
      */
-    public function getIdPerso(): Collection
+    public function getUsername(): string
     {
-        return $this->idPerso;
+        return (string) $this->pseudo;
     }
 
-    public function addIdPerso(Personnage $idPerso): self
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        if (!$this->idPerso->contains($idPerso)) {
-            $this->idPerso[] = $idPerso;
-        }
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
 
-    public function removeIdPerso(Personnage $idPerso): self
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
     {
-        if ($this->idPerso->contains($idPerso)) {
-            $this->idPerso->removeElement($idPerso);
-        }
+        return (string) $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
