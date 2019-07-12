@@ -5,14 +5,20 @@
 {% block body %}
     <main class="container">
         <div class="register">
+            <form name="registration_form" method="post">
+                <div class="form-group"><label class="col-form-label required" for="registration_form_pseudo"></label>
+                    <div><input type="text" id="registration_form_pseudo" name="registration_form[pseudo]" required="required" maxlength="180" class="form-control" placeholder="Pseudo"></div>
+                </div>
+                <div class="form-group"><label class="col-form-label required" for="registration_form_plainPassword"></label>
+                    <div><input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" class="form-control" placeholder="Mot de passe"></div>
+                </div>
+                <div class="form-group"><label class="col-form-label required" for="registration_form_email"></label>
+                    <div><input type="text" id="registration_form_email" name="registration_form[email]" required="required" class="form-control" placeholder="Email"></div>
+                </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.pseudo) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.email) }}
-
-        <button class="btn btn-lg btn-primary">S'enregistrer</button>
-    {{ form_end(registrationForm) }}
+                {{ form_row(registrationForm._token) }}
+                <button class="btn btn-lg btn-primary boxlogin">S'enregistrer</button>
+            </form>
         </div>
     </main>
 {% endblock %}

@@ -4,6 +4,7 @@
 
 {% block body %}
     <main class="container">
+    <div class="rond"></div>
     <div class="bloc1">
         <div class="row">
             <a href="{{ path('filtre') }}?filter=nomLiens" class="btn btntri">Trier par nom</a>
@@ -15,7 +16,7 @@
 
     <div class="form-check liste">
         <input class="form-check-input" type="checkbox" value="{{ lien.id }}" id="{{ lien.id }}" name="{{ lien.id }}">
-        <label class="form-check-label" for="{{ lien.id }}">
+        <label class="form-check-label label" for="{{ lien.id }}">
             {{ lien.nomLiens }} Ki +{{ lien.NbKiLiens }}
         </label>
     </div>

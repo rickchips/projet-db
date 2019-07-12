@@ -11,9 +11,9 @@
     {% endif %}
 
     <label for="inputPseudo" class="sr-only">Pseudo</label>
-    <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" placeholder="Pseudo" required autofocus>
+    <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control boxlogin" placeholder="Pseudo" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" name="password" id="inputPassword" class="form-control boxlogin" placeholder="Mot de passe" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -30,7 +30,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn btn-lg btn-primary boxlogin" type="submit">
         Se connecter
     </button>
 </form>
