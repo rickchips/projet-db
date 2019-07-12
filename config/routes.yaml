@@ -1,5 +1,5 @@
 index:
     path: /
-    controller: App\Controller\PersoController::index
+    controller: App\Controller\FiltreController::index
 app_logout:
     path: /logout
